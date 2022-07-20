@@ -10,7 +10,7 @@
           </v-list-item-content>
           <v-list-item-action>
             <v-btn icon @click="removePeriod(entry)">
-              <v-icon color="grey lighten-1">mdi-remove</v-icon>
+              <v-icon color="grey lighten-1">mdi-delete-outline</v-icon>
             </v-btn>
           </v-list-item-action>
         </v-list-item>

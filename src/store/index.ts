@@ -79,7 +79,7 @@ export default new Vuex.Store({
       context.dispatch("saveData");
     },
     removePeriod(context, payload: Period) {
-      context.dispatch("removePeriod", payload);
+      context.commit("removePeriod", payload);
       context.dispatch("saveData");
     },
     setSettings(

@@ -42,7 +42,6 @@ const type = ref("month");
 const month = ref("");
 const year = ref("");
 
-const calendar = ref(null);
 const calendarValue = ref("");
 
 const periods = computed(() => store.state.periods.map((period) => ({
@@ -96,9 +95,4 @@ function updateMonth(event) {
   year.value = event.start.year;
 }
 
-function goToNextMonth() {
-  if (calendar.value) {
-    calendar.value.next();
-  }
-}
 </script>
