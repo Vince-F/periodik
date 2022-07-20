@@ -13,9 +13,10 @@ new Vue({
   vuetify,
   render: (h) => h(App),
 }).$mount("#app");
-
+/*
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
     .register("/sw.js")
     .then(() => { console.log("Service Worker Registered"); });
 }
+*/
