@@ -1,32 +1,55 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="purple"
+      dark
+      dense
+    >
+      <div class="d-flex align-center">
+        <v-btn @click="drawerOpened = !drawerOpened" icon>
+          <v-icon>mdi-menu</v-icon>
+        </v-btn>
+
+        PERIODIK
+      </div>
+
+      <v-spacer></v-spacer>
+    </v-app-bar>
+
+    <v-main>
+      <v-navigation-drawer
+        v-model="drawerOpened"
+        absolute
+        temporary
+      >
+        <MenuComponent />
+      </v-navigation-drawer>
+      <div v-if="!loading" class="content">
+        <router-view />
+      </div>
+      <div v-else>
+        Loading...
+      </div>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+<style scoped>
+.content {
+  padding: 1rem;
 }
 </style>
+
+<script setup lang="ts">
+import { ref } from "vue";
+import MenuComponent from "./components/MenuComponent.vue";
+import store from "./store";
+
+const drawerOpened = ref(false);
+const loading = ref(true);
+store.dispatch("loadData")
+  .then(() => {
+    loading.value = false;
+  });
+</script>

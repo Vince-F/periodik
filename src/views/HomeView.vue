@@ -1,18 +1,13 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div>
+    <p>
+      Determine your cycles occurences <router-link to="/settings">over here</router-link>
+    </p>
+    <p>
+      Set your last cycles <router-link to="/periodsList">here</router-link>
+    </p>
+    <p>
+      See the prediction in <router-link to="/calendar">the calendar</router-link>
+    </p>
   </div>
 </template>
-
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-
-@Component({
-  components: {
-    HelloWorld,
-  },
-})
-export default class HomeView extends Vue {}
-</script>

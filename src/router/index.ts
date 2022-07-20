@@ -1,22 +1,32 @@
-import Vue from 'vue';
-import VueRouter, { RouteConfig } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
+import Vue from "vue";
+import VueRouter, { RouteConfig } from "vue-router";
+import HomeView from "../views/HomeView.vue";
+import PeriodsListView from "../views/PeriodsListView.vue";
+import CalendarView from "../views/CalendarView.vue";
+import SettingsView from "../views/SettingsView.vue";
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
-    path: '/',
-    name: 'home',
+    path: "/",
+    name: "home",
     component: HomeView,
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
+    path: "/periodsList",
+    name: "periodsList",
+    component: PeriodsListView,
+  },
+  {
+    path: "/calendar",
+    name: "calendar",
+    component: CalendarView,
+  },
+  {
+    path: "/settings",
+    name: "settings",
+    component: SettingsView,
   },
 ];
 
